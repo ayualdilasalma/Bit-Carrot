@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../employee'
+import { Employee } from '../employee';
+import { EMPLOYEES } from '../mock-employees';
 
 @Component({
   selector: 'app-employee',
@@ -7,14 +8,15 @@ import { Employee } from '../employee'
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  employee: Employee = {
-    id: 1,
-    name: 'John Doe',
-    email: 'johndoe@gmail.com'
-  }
+  employees = EMPLOYEES;
+  selectedEmployee: Employee;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClickDetail(employee: Employee){
+    this.selectedEmployee = employee;;
+  }
 }

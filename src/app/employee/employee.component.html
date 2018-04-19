@@ -1,18 +1,24 @@
-<h2>{{ employee.name | uppercase }}</h2>
-<ul>
-  <li><span>ID &nbsp; &nbsp; &nbsp; &nbsp;: </span>{{employee.id}}</li>
-  <li><span>Name &nbsp;: </span>{{employee.name}}</li>
-  <li><span>Email &nbsp; : </span>{{employee.email}}</li>
-</ul>
-<div>
-  <label>Name
-    <input [(ngModel)]="employee.name" placeholder="name"/>
-  </label>
-</div>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+          <h2>Employees List</h2>
+          <table class="table">
+            <tr>
+              <td>ID</td>
+              <td>Name</td>
+              <td>Email</td>
+              <td>Option</td>
+            </tr>
+            <tr *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee">
+              <td>{{employee.id}}</td>
+              <td>{{employee.name}}</td>
+              <td>{{employee.email}}</td>
+              <td><button (click)="onClickDetail(employee)">Details</button></td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <label>Email
-    <input type="email" [(ngModel)]="employee.email" placeholder="email"/>
-  </label>
-</div>
+  <app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
  
