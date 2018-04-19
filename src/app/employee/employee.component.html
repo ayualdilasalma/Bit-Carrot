@@ -4,3 +4,15 @@
   <li><span>Name &nbsp;: </span>{{employee.name}}</li>
   <li><span>Email &nbsp; : </span>{{employee.email}}</li>
 </ul>
+<div>
+  <label>Name
+    <input [(ngModel)]="employee.name" placeholder="name"/>
+  </label>
+</div>
+
+<div>
+  <label>Email
+    <input type="email" [(ngModel)]="employee.email" placeholder="email"/>
+  </label>
+</div>
+ 
