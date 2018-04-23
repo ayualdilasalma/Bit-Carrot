@@ -10,18 +10,22 @@ import { EmployeeService } from './employee.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { HttpClientModule} from '@angular/common/http';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     EmployeeDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

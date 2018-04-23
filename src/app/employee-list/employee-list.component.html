@@ -1,7 +1,20 @@
-<div class="container">
+<app-spinner *ngIf="!show"></app-spinner>
+<div class="container" *ngIf="show">
     <div class="row">
       <div class="col-lg-12">
           <h2>Employees List</h2>
+          <div>
+            <label>Employee name:
+              <input #employeeName />
+            </label>
+            <label>Employee email:
+              <input #employeeEmail />
+            </label>
+            <!-- (click) passes input value to add() and then clears the input -->
+            <button (click)="addEmployee(employeeName.value); addEmployee(employeeEmail.value); employeeName.value=''; employeeEmail.value=''">
+              Add
+            </button>
+          </div>
           <table class="table table-hover">
             <thead>
                 <tr>
@@ -12,10 +25,10 @@
                 </tr>
             </thead>
             <tr *ngFor="let employee of employees">
-              <td>{{employee.id}}</td>
+              <td>{{employee._id}}</td>
               <td>{{employee.name}}</td>
               <td>{{employee.email}}</td>
-              <td><button (click)="onClickDetail(employee)" class="btn"><a routerLink="/employees/{{employee.id}}">Detail</a></button></td>
+              <td><button (click)="onClickDetail(employee)" class="btn"><a routerLink="/employees/{{employee._id}}">Detail</a></button></td>
             </tr>
           </table>
       </div>

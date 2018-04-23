@@ -13,6 +13,7 @@ import { EmployeeService } from '../employee.service';
 
 export class EmployeeDetailComponent implements OnInit {
   @Input() employee: Employee;
+  show: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,9 +26,11 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   getEmployee(): void {
-  const id = +this.route.snapshot.paramMap.get('id');
-  this.employeeService.getEmployeesById(id)
-   .subscribe(employee => this.employee = employee);
+  const id = this.route.snapshot.paramMap.get('_id');
+  console.log(id);
+  this.employeeService.getEmployeesById(String(id))
+   .subscribe(employee => {this.employee = employee;
+    this.show = true});
   }
 
   goBack(): void {
