@@ -1,19 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
-import { EMPLOYEES } from '../mock-employees';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent implements OnInit {
-  employees = EMPLOYEES;
+export class EmployeeListComponent implements OnInit {
+  employees: Employee[];
   selectedEmployee: Employee;
 
-  constructor() { }
+  constructor(private empService: EmployeeService) { }
 
   ngOnInit() {
+    this.getEmployees();
+  }
+
+  getEmployees(): void {
+   this.empService.getEmployees()
+       .subscribe(employees => this.employees = employees );
   }
 
   onClickDetail(employee: Employee){

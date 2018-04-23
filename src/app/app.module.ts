@@ -4,21 +4,22 @@ import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeListComponent } from './employee-list/employee.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { EmployeeService } from './employee.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
+    EmployeeListComponent,
     EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

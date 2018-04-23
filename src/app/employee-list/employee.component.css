@@ -1,0 +1,13 @@
+td button {
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #73cff0;
+}
+
+h2 {
+    text-align: center;
+    margin: 15px 0;
+}
