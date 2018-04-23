@@ -11,16 +11,16 @@
                   <th>Option</th>
                 </tr>
             </thead>
-            <tr *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee">
+            <tr *ngFor="let employee of employees">
               <td>{{employee.id}}</td>
               <td>{{employee.name}}</td>
               <td>{{employee.email}}</td>
-              <td><button (click)="onClickDetail(employee)">Details</button></td>
+              <td><button (click)="onClickDetail(employee)"><a routerLink="/employees/{{employee.id}}">Detail</a></button></td>
             </tr>
           </table>
       </div>
     </div>
   </div>
 
-  <app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
+  <!-- <app-employee-detail [employee]="selectedEmployee"></app-employee-detail> -->
  

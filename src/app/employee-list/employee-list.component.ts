@@ -19,7 +19,7 @@ export class EmployeeListComponent implements OnInit {
 
   getEmployees(): void {
    this.empService.getEmployees()
-       .subscribe(employees => this.employees = employees );
+       .subscribe(employees => this.employees = employees);
   }
 
   onClickDetail(employee: Employee){

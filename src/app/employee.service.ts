@@ -11,7 +11,12 @@ export class EmployeeService {
   constructor() { }
 
   getEmployees(): Observable<Employee[]> {
-    return of(EMPLOYEES);
+  return of(EMPLOYEES);
   }
+
+  getEmployeesById(id: number): Observable<Employee> {
+    return of(EMPLOYEES.find(employee => employee.id === id));
+  }
+  
 
 }
