@@ -26,17 +26,17 @@ export class EmployeeListComponent implements OnInit {
 
   addEmployee(name: string, email: string): void {
     name = name.trim();
-    if (!name) { return; }
-    this.empService.addEmployee({ name } as Employee)
-      .subscribe(employee => {
-        this.employees.push(employee);
-      });
     email = email.trim();
-    if (!email) { return; }
-    this.empService.addEmployee({ email } as Employee)
+    if (!name || !email) { return; }
+    this.empService.addEmployee({ name, email } as Employee)
       .subscribe(employee => {
         this.employees.push(employee);
       });
+  }
+
+  deleteEmployee(employee: Employee): void {
+    this.employees = this.employees.filter(e => e !== employee);
+    this.empService.deleteEmployee(employee).subscribe();
   }
 
   onClickDetail(employee: Employee){

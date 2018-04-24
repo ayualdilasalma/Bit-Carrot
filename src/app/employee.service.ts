@@ -26,7 +26,7 @@ export class EmployeeService {
       );
   }
 
-  /** GET employee by id. Will 404 if id not found */
+  /** GET employee by id */
   getEmployeesById(_id: string): Observable<Employee> {
     const url = `${this.employeesUrl}/${_id}`;
     return this.http.get<Employee>(url).pipe(
@@ -35,13 +35,24 @@ export class EmployeeService {
     );
   }
 
+  /** ADD: add the employee to the server */
   addEmployee (employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.employeesUrl, employee, httpOptions).pipe(
+    return this.http.post<Employee>(`${this.employeesUrl}/add`, employee, httpOptions).pipe(
       //tap((employee: Employee) => this.log(`added employee w/ id=${employee._id}`)),
       catchError(this.handleError<Employee>('addEmployee'))
     );
   }
   
+  /** DELETE: delete the hero from the server */
+  deleteEmployee (employee: Employee | string): Observable<Employee> {
+    const _id = typeof employee === 'string' ? employee : employee._id;
+    const url = `${this.employeesUrl}/${_id}`;
+
+    return this.http.delete<Employee>(url, httpOptions).pipe(
+      //tap(_ => this.log(`deleted hero id=${id}`)),
+      catchError(this.handleError<Employee>('deleteEmployee'))
+    );
+  }
 
 
   /**

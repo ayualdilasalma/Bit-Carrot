@@ -11,7 +11,7 @@
               <input #employeeEmail />
             </label>
             <!-- (click) passes input value to add() and then clears the input -->
-            <button (click)="addEmployee(employeeName.value); addEmployee(employeeEmail.value); employeeName.value=''; employeeEmail.value=''">
+            <button (click)="addEmployee(employeeName.value, employeeEmail.value); employeeName.value=''; employeeEmail.value=''">
               Add
             </button>
           </div>
@@ -28,7 +28,10 @@
               <td>{{employee._id}}</td>
               <td>{{employee.name}}</td>
               <td>{{employee.email}}</td>
-              <td><button (click)="onClickDetail(employee)" class="btn"><a routerLink="/employees/{{employee._id}}">Detail</a></button></td>
+              <td>
+                <button (click)="onClickDetail(employee)" class="btn"><a routerLink="/employees/{{employee._id}}">Detail</a></button>
+                <button class="btn btn-danger" title="delete employee" (click)="deleteEmployee(employee)">Delete</button>
+              </td>
             </tr>
           </table>
       </div>
