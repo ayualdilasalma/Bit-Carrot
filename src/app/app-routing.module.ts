@@ -5,7 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  { path: '', component: DashboardComponent},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'employees', component: EmployeeListComponent },
   { path: 'employees/:id', component: EmployeeDetailComponent },
