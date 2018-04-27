@@ -6,7 +6,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Employee } from './employee';
-import { EMPLOYEES } from './mock-employees';
+// import { EMPLOYEES } from './mock-employees';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
